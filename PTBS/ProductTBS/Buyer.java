@@ -2,8 +2,6 @@ package SER515.ProductTBS;
 
 public class Buyer extends Person {
 
-	private Seller seller;
-
 	private Person person;
 
 	public void showMenu() {

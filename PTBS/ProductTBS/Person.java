@@ -4,10 +4,6 @@ public abstract class Person implements ProductMenu {
 
 	private ProductMenu theProductMenu;
 
-	private Buyer buyer;
-
-	private ProductMenu productMenu;
-
 	public void showMenu() {
 
 	}
