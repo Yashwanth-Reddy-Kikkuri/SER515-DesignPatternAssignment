@@ -22,23 +22,33 @@ public abstract class Person implements ProductMenu {
 	}
 
 	public void showAddButton() {
-
+		System.out.println("Add button");
 	}
 
 	public void showViewButton() {
-
+		System.out.println("View button");
 	}
 
 	public void showRadioButton() {
-
+		System.out.println("Radio button");
 	}
 
 	public void showLabels() {
-
+		System.out.println("labels");
 	}
 
 	public ProductMenu CreateProductMenu() {
-		return null;
-	}
+		int userType = userInfoItem.getUserType();
+		ProductMenu productMenu = null;
+		if (userType == 0){
+			Buyer buyer = new Buyer(userInfoItem);
+			productMenu = buyer.CreateProductMenu();
+		}
+		else{
+			Seller seller = new Seller(userInfoItem);
+			productMenu = seller.CreateProductMenu();
+		}
 
+		return productMenu;
+	}
 }

@@ -115,7 +115,8 @@ public class Facade {
 	}
 
 	public void productOperation() {
-
+		System.out.println("Calling person createProductMenu");
+//		int userType = thePerson.userInfoItem.getUserType();
+		thePerson.CreateProductMenu();
 	}
-
 }
