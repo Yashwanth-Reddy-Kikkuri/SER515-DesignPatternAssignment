@@ -9,6 +9,7 @@ public class Main {
                 if(facade.login()){
                     facade.createProductList();
                     facade.AttachProductToUser();
+                    facade.SelectProduct();
                 }
                 else{
                     System.out.println("Should see");

@@ -94,7 +94,23 @@ public class Facade {
 
 	}
 
-	public Product SelectProduct() {
+	public Product SelectProduct() throws IOException {
+		for(Product product : thePerson.getProducts()){
+				System.out.println(product);
+		}
+		int check = 0;
+		while (check == 0) {
+			System.out.println("Enter the productName that you want to select:");
+			BufferedReader readerName = new BufferedReader(
+					new InputStreamReader(System.in));
+			String productName = readerName.readLine();
+			for (Product product : thePerson.getProducts()) {
+				if (product.productName.equalsIgnoreCase(productName)) {
+					return product;
+				}
+			}
+			System.out.println("Product name doesn't match. Please re-enter");
+		}
 		return null;
 	}
 
