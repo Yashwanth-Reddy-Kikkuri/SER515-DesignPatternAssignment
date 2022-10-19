@@ -12,6 +12,10 @@ public class UserInfoItem {
         this.userType = userType;
     }
 
+    public UserInfoItem() {
+
+    }
+
     public String getName() {
         return name;
     }

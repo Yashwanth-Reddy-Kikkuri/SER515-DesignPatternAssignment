@@ -21,14 +21,14 @@ public class ClassProductList {
 		String bt;
 		products = new ArrayList<Product>();
 		while ((bt = br.readLine()) != null) {
-			System.out.println(bt);
+//			System.out.println(bt);
 			String[] arrOfStr = bt.split(":");
 			Product product = new Product(arrOfStr[0],arrOfStr[1]);
 //			System.out.println(product);
 			products.add(product);
 		}
 
-//		System.out.println(Arrays.deepToString(products.toArray()));
+		System.out.println(Arrays.deepToString(products.toArray()));
 	}
 
 	public void accept(NodeVisitor visitor) {

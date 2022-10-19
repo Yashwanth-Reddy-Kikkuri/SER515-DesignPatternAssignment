@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class Login{
 
-    public int login() throws IOException {
+    public UserInfoItem login() throws IOException {
         System.out.println("Enter you name:");
         BufferedReader readerName = new BufferedReader(
                 new InputStreamReader(System.in));
@@ -38,7 +38,11 @@ public class Login{
 //				System.out.println(arrOfStr[1]);
 
                 if (arrOfStr[1].equals(pass)){
-                    return 0;
+                    UserInfoItem userInfoItem = new UserInfoItem();
+                    userInfoItem.setName(name);
+                    userInfoItem.setPass(pass);
+                    userInfoItem.setUserType(0);
+                    return userInfoItem;
                 }
                 else{
                     System.out.println("Password doesn't match for the username as Buyer");
@@ -65,7 +69,11 @@ public class Login{
 //				System.out.println(arrOfStr[1]);
 
                 if (arrOfStr[1].equals(pass)){
-                    return 1;
+                    UserInfoItem userInfoItem = new UserInfoItem();
+                    userInfoItem.setName(name);
+                    userInfoItem.setPass(pass);
+                    userInfoItem.setUserType(1);
+                    return userInfoItem;
                 }
                 else{
                     System.out.println("Password doesn't match for the username as Seller");

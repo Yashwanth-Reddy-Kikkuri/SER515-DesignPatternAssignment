@@ -4,6 +4,10 @@ public class Buyer extends Person {
 
 	private Person person;
 
+	public Buyer(UserInfoItem userinfoitem) {
+		this.userInfoItem = userinfoitem;
+	}
+
 	public void showMenu() {
 
 	}

@@ -15,8 +15,10 @@ public class Facade {
 	private Person thePerson;
 	public boolean login() throws IOException {
 		Login log = new Login();
-		UserType = log.login();
-//		createUser(UserType);
+
+		UserInfoItem userInfoItem = log.login();
+		UserType = userInfoItem.getUserType();
+		createUser(userInfoItem);
 		return true;
 	}
 
@@ -45,7 +47,15 @@ public class Facade {
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
-
+		int uType = userinfoitem.getUserType();
+		if (uType == 0){
+			thePerson = new Buyer(userinfoitem);
+			System.out.println("Buyer");
+		}
+		if (uType == 1){
+			thePerson = new Seller(userinfoitem);
+			System.out.println("Seller");
+		}
 
 	}
 
@@ -55,6 +65,7 @@ public class Facade {
 	}
 
 	public void AttachProductToUser() {
+
 
 	}
 

@@ -3,6 +3,7 @@ package SER515.ProductTBS;
 public abstract class Person implements ProductMenu {
 
 	private ProductMenu theProductMenu;
+	UserInfoItem userInfoItem;
 
 	public void showMenu() {
 
