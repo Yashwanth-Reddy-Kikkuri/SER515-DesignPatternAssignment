@@ -8,6 +8,7 @@ public class Main {
             try {
                 if(facade.login()){
                     facade.createProductList();
+                    facade.AttachProductToUser();
                 }
                 else{
                     System.out.println("Should see");

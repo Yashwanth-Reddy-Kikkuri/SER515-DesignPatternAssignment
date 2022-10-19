@@ -1,6 +1,9 @@
 package SER515.ProductTBS;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Facade {
 
@@ -64,8 +67,30 @@ public class Facade {
 
 	}
 
-	public void AttachProductToUser() {
+	public void AttachProductToUser() throws IOException {
+		File file = new File("PTBS/UserProduct.txt");
 
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		String bt;
+		String name = thePerson.userInfoItem.getName();
+		System.out.println(name);
+		List<String> productList = new ArrayList<String>();
+		while ((bt = br.readLine()) != null) {
+			String[] arrOfStr = bt.split(":");
+			if (arrOfStr[0].equals(name)) {
+				productList.add(arrOfStr[1]);
+			}
+		}
+		System.out.println(Arrays.deepToString(productList.toArray()));
+		List<Product> productL = new ArrayList<Product>();
+		for(Product product : theProductList.getProducts()){
+			if(productList.contains(product.productName)){
+				productL.add(product);
+			}
+		}
+		thePerson.setProducts(productL);
+		System.out.println(Arrays.deepToString(thePerson.getProducts().toArray()));
 
 	}
 
