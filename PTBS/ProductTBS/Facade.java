@@ -13,6 +13,14 @@ public class Facade {
 
 	private int nProductCategory;
 
+	public ClassProductList getTheProductList() {
+		return theProductList;
+	}
+
+	public void setTheProductList(ClassProductList theProductList) {
+		this.theProductList = theProductList;
+	}
+
 	private ClassProductList theProductList;
 
 	private Person thePerson;
@@ -90,7 +98,7 @@ public class Facade {
 			}
 		}
 		thePerson.setProducts(productL);
-		System.out.println(Arrays.deepToString(thePerson.getProducts().toArray()));
+//		System.out.println(Arrays.deepToString(thePerson.getProducts().toArray()));
 
 	}
 
@@ -114,8 +122,8 @@ public class Facade {
 		return null;
 	}
 
-	public void productOperation() {
-		System.out.println("Calling person createProductMenu");
+	public void productOperation() throws IOException {
+//		System.out.println("Calling person createProductMenu");
 //		int userType = thePerson.userInfoItem.getUserType();
 		thePerson.CreateProductMenu();
 	}

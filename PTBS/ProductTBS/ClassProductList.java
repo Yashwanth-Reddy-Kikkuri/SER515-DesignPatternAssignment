@@ -36,7 +36,7 @@ public class ClassProductList {
 			products.add(product);
 		}
 
-		System.out.println(Arrays.deepToString(products.toArray()));
+//		System.out.println(Arrays.deepToString(products.toArray()));
 	}
 
 	public void accept(NodeVisitor visitor) {

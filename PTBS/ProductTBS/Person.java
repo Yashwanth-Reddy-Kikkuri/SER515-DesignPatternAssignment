@@ -1,5 +1,6 @@
 package SER515.ProductTBS;
 
+import java.io.IOException;
 import java.util.List;
 
 public abstract class Person implements ProductMenu {
@@ -37,7 +38,7 @@ public abstract class Person implements ProductMenu {
 		System.out.println("labels");
 	}
 
-	public ProductMenu CreateProductMenu() {
+	public ProductMenu CreateProductMenu() throws IOException {
 		int userType = userInfoItem.getUserType();
 		ProductMenu productMenu = null;
 		if (userType == 0){
