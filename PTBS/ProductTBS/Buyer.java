@@ -25,7 +25,7 @@ public class Buyer extends Person {
 	 */
 	public ProductMenu CreateProductMenu() throws IOException {
 		Facade facade = new Facade();
-//		facade.createProductList();
+		facade.createProductList();
 		ClassProductList productList = facade.getTheProductList();
 		System.out.println("Displaying Menu");
 		System.out.println(Arrays.deepToString(productList.getProducts().toArray()));
