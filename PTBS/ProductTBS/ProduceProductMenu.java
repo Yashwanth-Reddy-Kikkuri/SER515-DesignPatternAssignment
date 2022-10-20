@@ -1,7 +1,17 @@
 package SER515.ProductTBS;
 
-public class ProduceProductMenu implements ProductMenu {
+import java.util.List;
 
+public class ProduceProductMenu implements ProductMenu {
+	public List<String> getProduceProduct() {
+		return produceProduct;
+	}
+
+	public void setProduceProduct(List<String> produceProduct) {
+		this.produceProduct = produceProduct;
+	}
+
+	List<String> produceProduct;
 	public void showMenu() {
 
 	}
@@ -25,5 +35,6 @@ public class ProduceProductMenu implements ProductMenu {
 	public void showComBoxes() {
 		System.out.println("Com boxes");
 	}
+
 
 }

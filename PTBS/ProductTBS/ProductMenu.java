@@ -1,7 +1,10 @@
 package SER515.ProductTBS;
 
-public interface ProductMenu {
+import java.util.ArrayList;
+import java.util.List;
 
+public interface ProductMenu {
+	List<String> products = new ArrayList<>();
 	Person person = null;
 
 	public abstract void showMenu();

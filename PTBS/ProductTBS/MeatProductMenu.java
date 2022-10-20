@@ -1,6 +1,18 @@
 package SER515.ProductTBS;
 
+import java.util.List;
+
+
 public class MeatProductMenu implements ProductMenu {
+	List<String> meatProduct;
+
+	public List<String> getMeatProduct() {
+		return this.meatProduct;
+	}
+
+	public void setMeatProduct(List<String> meatProduct) {
+		this.meatProduct = meatProduct;
+	}
 
 	public void showMenu() {
 

@@ -41,6 +41,7 @@ public abstract class Person implements ProductMenu {
 	public ProductMenu CreateProductMenu() throws IOException {
 		int userType = userInfoItem.getUserType();
 		ProductMenu productMenu = null;
+		System.out.println("Factory Design Pattern");
 		if (userType == 0){
 			Buyer buyer = new Buyer(userInfoItem);
 			productMenu = buyer.CreateProductMenu();
@@ -49,7 +50,7 @@ public abstract class Person implements ProductMenu {
 			Seller seller = new Seller(userInfoItem);
 			productMenu = seller.CreateProductMenu();
 		}
-
+		this.theProductMenu = productMenu;
 		return productMenu;
 	}
 }
