@@ -2,20 +2,21 @@ package SER515.ProductTBS;
 
 import javax.management.Notification;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ListIterator;
 
 public class ProductIterator implements ListIterator {
 
-	private Product[] classProductList;
+	private List<Product> classProductList;
 	int pos;
 
-	public ProductIterator(Product[] classProductList, int pos) {
+	public ProductIterator(List<Product> classProductList) {
 		this.classProductList = classProductList;
 		this.pos = 0;
 	}
 
 	public boolean hasNext() {
-		if (this.pos < this.classProductList.length){
+		if (this.pos < this.classProductList.size()){
 			return true;
 		}
 		return false;
@@ -23,8 +24,8 @@ public class ProductIterator implements ListIterator {
 
 	@Override
 	public Object next() {
-		if (this.pos < this.classProductList.length){
-			Product product = this.classProductList[this.pos];
+		if (this.pos < this.classProductList.size()){
+			Product product = this.classProductList.get(this.pos);
 			this.pos += 1;
 			return product;
 		}
@@ -53,13 +54,13 @@ public class ProductIterator implements ListIterator {
 
 	@Override
 	public void remove() {
-		Product[] tempProdList = null;
+		List<Product> tempProdList = new ArrayList<>();
 		int i,j=0;
-		for(i=0;i<this.classProductList.length;i++){
+		for(i=0;i<this.classProductList.size();i++){
 			if(j==this.pos){
 				continue;
 			}
-			tempProdList[j] = this.classProductList[i];
+			tempProdList.set(j, this.classProductList.get(i));
 			j++;
 		}
 		this.classProductList = tempProdList;
@@ -76,6 +77,11 @@ public class ProductIterator implements ListIterator {
 	}
 
 	public Product Next() {
+		if (this.pos < this.classProductList.size()){
+			Product product = this.classProductList.get(this.pos);
+			this.pos += 1;
+			return product;
+		}
 		return null;
 	}
 

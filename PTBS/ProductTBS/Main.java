@@ -11,7 +11,6 @@ public class Main {
                     facade.createProductList();
                     facade.AttachProductToUser();
 //                    facade.SelectProduct();
-                    System.out.println("Bridge Design Pattern");
                     facade.productOperation();
                 }
                 else{

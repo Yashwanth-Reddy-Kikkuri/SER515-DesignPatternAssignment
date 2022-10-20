@@ -2,7 +2,7 @@ package SER515.ProductTBS;
 
 import java.util.List;
 
-public class ProduceProductMenu implements ProductMenu {
+public class ProduceProductMenu extends ProductMenuFactory implements ProductMenu {
 	public List<String> getProduceProduct() {
 		return produceProduct;
 	}
@@ -13,11 +13,13 @@ public class ProduceProductMenu implements ProductMenu {
 
 	List<String> produceProduct;
 	public void showMenu() {
-
+		this.showAddButton();
+		this.showViewButton();
+		this.showRadioButton();
 	}
 
 	public void showAddButton() {
-		System.out.println("add");
+		System.out.println("add button");
 	}
 
 	public void showViewButton() {

@@ -6,7 +6,7 @@ public class OfferingIterator {
 
 	int pos;
 
-	public OfferingIterator(Offering[] offeringList, int pos) {
+	public OfferingIterator(Offering[] offeringList) {
 		this.offeringList = offeringList;
 		this.pos = pos;
 	}

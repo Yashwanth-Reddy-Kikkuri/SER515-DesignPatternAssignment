@@ -38,19 +38,7 @@ public abstract class Person implements ProductMenu {
 		System.out.println("labels");
 	}
 
-	public ProductMenu CreateProductMenu() throws IOException {
-		int userType = userInfoItem.getUserType();
-		ProductMenu productMenu = null;
-		System.out.println("Factory Design Pattern");
-		if (userType == 0){
-			Buyer buyer = new Buyer(userInfoItem);
-			productMenu = buyer.CreateProductMenu();
-		}
-		else{
-			Seller seller = new Seller(userInfoItem);
-			productMenu = seller.CreateProductMenu();
-		}
-		this.theProductMenu = productMenu;
-		return productMenu;
+	public ProductMenu CreateProductMenu() throws IOException{
+		return null;
 	}
 }

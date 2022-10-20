@@ -3,9 +3,7 @@ package SER515.ProductTBS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Buyer extends Person {
 
@@ -25,9 +23,10 @@ public class Buyer extends Person {
 	}
 
 	/**
-	 *  
+	 *
+	 * @return
 	 */
-	public ProductMenu CreateProductMenu() throws IOException {
+	public ProductMenuFactory CreateProductMenu() throws IOException {
 		Facade facade = new Facade();
 		facade.createProductList();
 		ClassProductList productList = facade.getTheProductList();
@@ -53,25 +52,34 @@ public class Buyer extends Person {
 			}
 			System.out.println("Product Category doesn't match. Please re-enter");
 		}
+		System.out.println("Factory Design Pattern");
 
-		List<String> listOfProds = new ArrayList<>();
-		ProductMenu productMenu = null;
+//		List<Product> listOfProds = new ArrayList<>();
 		if (Category.equalsIgnoreCase("Meat")){
-			productMenu = new MeatProductMenu();
+			ProductMenuFactory productMenu = new MeatProductMenu();
+			for (Product product : productList.getProducts()){
+				if (product.productCategory.equalsIgnoreCase(Category)){
+					productMenu.products.add(product);
+				}
+			}
+			System.out.println("Menu Created, using iterator design pattern to display it");
+			return productMenu;
 		}
 		else{
-			productMenu = new ProduceProductMenu();
-		}
-		for (Product product : productList.getProducts()){
-			if (product.productCategory.equalsIgnoreCase(Category)){
-				listOfProds.add(product.productName);
+			ProductMenuFactory productMenu = new ProduceProductMenu();
+			for (Product product : productList.getProducts()){
+				if (product.productCategory.equalsIgnoreCase(Category)){
+					productMenu.products.add(product);
+				}
 			}
+			System.out.println("Menu Created, using iterator design pattern to display it");
+			return productMenu;
 		}
-		productMenu.products.add(String.valueOf(listOfProds));
+//		productMenu.products = listOfProds;
 //		meatProductMenu.setMeatProduct();
-		System.out.println(Arrays.deepToString(listOfProds.toArray()));
 
-		return productMenu;
+//		System.out.println(Arrays.deepToString(listOfProds.toArray()));
+
 	}
 
 }

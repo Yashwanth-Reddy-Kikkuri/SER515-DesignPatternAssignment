@@ -125,6 +125,29 @@ public class Facade {
 	public void productOperation() throws IOException {
 //		System.out.println("Calling person createProductMenu");
 //		int userType = thePerson.userInfoItem.getUserType();
-		thePerson.CreateProductMenu();
+//		ProductMenu productMenu = thePerson.CreateProductMenu();
+		int userType = this.UserType;
+		System.out.println("Bridge Design Pattern");
+		ProductMenuFactory productMenu;
+		if (userType == 0){
+			Buyer buyer = new Buyer(thePerson.userInfoItem);
+			productMenu = buyer.CreateProductMenu();
+		}
+		else{
+			Seller seller = new Seller(thePerson.userInfoItem);
+			productMenu = seller.CreateProductMenu();
+		}
+//		this.theProductMenu = productMenu;
+
+		System.out.println("Iterator design pattern");
+//		System.out.println(Arrays.deepToString(new ProductMenu[]{productMenu}));
+		ProductIterator productIterator = new ProductIterator(productMenu.getProducts());
+		List<Product> products = new ArrayList<>();
+		while (productIterator.hasNext()){
+//			System.out.println("a");
+			products.add(productIterator.Next());
+		}
+		System.out.println(Arrays.deepToString(products.toArray()));
+
 	}
 }

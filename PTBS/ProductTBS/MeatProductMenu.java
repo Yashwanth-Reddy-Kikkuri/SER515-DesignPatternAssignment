@@ -3,7 +3,7 @@ package SER515.ProductTBS;
 import java.util.List;
 
 
-public class MeatProductMenu implements ProductMenu {
+public class MeatProductMenu extends ProductMenuFactory implements ProductMenu {
 	List<String> meatProduct;
 
 	public List<String> getMeatProduct() {
@@ -15,7 +15,9 @@ public class MeatProductMenu implements ProductMenu {
 	}
 
 	public void showMenu() {
-
+		this.showAddButton();
+		this.showViewButton();
+		this.showRadioButton();
 	}
 
 	public void showAddButton() {

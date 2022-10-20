@@ -21,7 +21,7 @@ public class Seller extends Person {
 
 	}
 
-	public ProductMenu CreateProductMenu() throws IOException {
+	public ProductMenuFactory CreateProductMenu() throws IOException {
 		List<Product> productsList = this.getProducts();
 		System.out.println("Displaying Menu");
 		System.out.println(Arrays.deepToString(productsList.toArray()));
@@ -45,8 +45,9 @@ public class Seller extends Person {
 			System.out.println("Product Category doesn't match. Please re-enter");
 		}
 
-		List<String> listOfProds = new ArrayList<>();
-		ProductMenu productMenu = null;
+		System.out.println("Factory Design Pattern");
+
+		ProductMenuFactory productMenu = null;
 		if (Category.equalsIgnoreCase("Meat")){
 			productMenu = new MeatProductMenu();
 		}
@@ -55,12 +56,14 @@ public class Seller extends Person {
 		}
 		for (Product product : productsList){
 			if (product.productCategory.equalsIgnoreCase(Category)){
-				listOfProds.add(product.productName);
+//				listOfProds.add(product);
+				productMenu.products.add(product);
 			}
 		}
-		productMenu.products.add(String.valueOf(listOfProds));
+
 //		meatProductMenu.setMeatProduct();
-		System.out.println(Arrays.deepToString(listOfProds.toArray()));
+		System.out.println("Menu Created, using iterator design pattern to display it");
+//		System.out.println(Arrays.deepToString(listOfProds.toArray()));
 
 		return productMenu;
 	}
