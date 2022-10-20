@@ -22,7 +22,13 @@ public class Seller extends Person {
 	}
 
 	public ProductMenuFactory CreateProductMenu() throws IOException {
-		List<Product> productsList = this.getProducts();
+		Facade facade = new Facade();
+		facade.createProductList();
+		ClassProductList productList = facade.getTheProductList();
+		facade.setThePerson(this);
+		facade.setTheProductList(productList);
+		facade.AttachProductToUser();
+		List<Product> productsList = facade.getThePerson().getProducts();
 		System.out.println("Displaying Menu");
 		System.out.println(Arrays.deepToString(productsList.toArray()));
 		String Category = null;

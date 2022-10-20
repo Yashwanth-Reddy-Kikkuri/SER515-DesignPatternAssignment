@@ -18,8 +18,8 @@ public class Login{
         BufferedReader readerPass = new BufferedReader(
                 new InputStreamReader(System.in));
         String pass = readerPass.readLine();
-        System.out.println(name);
-        System.out.println(pass);
+//        System.out.println(name);
+//        System.out.println(pass);
 
 
         // If buyer is the one logging

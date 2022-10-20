@@ -23,6 +23,14 @@ public class Facade {
 
 	private ClassProductList theProductList;
 
+	public Person getThePerson() {
+		return thePerson;
+	}
+
+	public void setThePerson(Person thePerson) {
+		this.thePerson = thePerson;
+	}
+
 	private Person thePerson;
 	public boolean login() throws IOException {
 		Login log = new Login();
@@ -82,7 +90,7 @@ public class Facade {
 
 		String bt;
 		String name = thePerson.userInfoItem.getName();
-		System.out.println(name);
+//		System.out.println(name);
 		List<String> productList = new ArrayList<String>();
 		while ((bt = br.readLine()) != null) {
 			String[] arrOfStr = bt.split(":");
@@ -90,14 +98,14 @@ public class Facade {
 				productList.add(arrOfStr[1]);
 			}
 		}
-		System.out.println(Arrays.deepToString(productList.toArray()));
+//		System.out.println(Arrays.deepToString(productList.toArray()));
 		List<Product> productL = new ArrayList<Product>();
 		for(Product product : theProductList.getProducts()){
 			if(productList.contains(product.productName)){
 				productL.add(product);
 			}
 		}
-		thePerson.setProducts(productL);
+		this.thePerson.setProducts(productL);
 //		System.out.println(Arrays.deepToString(thePerson.getProducts().toArray()));
 
 	}
