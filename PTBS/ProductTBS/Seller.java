@@ -21,6 +21,7 @@ public class Seller extends Person {
 
 	}
 
+	// By this function we can see the use of Factory Design Pattern
 	public ProductMenuFactory CreateProductMenu() throws IOException {
 		Facade facade = new Facade();
 		facade.createProductList();

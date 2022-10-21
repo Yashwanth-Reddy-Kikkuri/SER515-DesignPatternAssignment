@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("fallthrough")
 public class Facade {
 
 	private int UserType;
@@ -32,6 +33,8 @@ public class Facade {
 	}
 
 	private Person thePerson;
+
+	// Here we can see the use of facade design pattern
 	public boolean login() throws IOException {
 		Login log = new Login();
 
@@ -41,26 +44,34 @@ public class Facade {
 		return true;
 	}
 
+	@SuppressWarnings("fallthrough")
 	public void addTrading() {
 
 	}
 
+	@SuppressWarnings("fallthrough")
 	public void viewTrading() {
-
+	System.out.println("viewTrading");
 	}
 
+	@SuppressWarnings("fallthrough")
 	public void decideBidding() {
+		System.out.println("decideBidding");
 
 	}
 
+	@SuppressWarnings("fallthrough")
 	public void discussBidding() {
+		System.out.println("discussBidding");
 
 	}
 
 	public void submitBidding() {
-
+		System.out.println("submitBidding");
 	}
 
+
+	// Here we can see the use of visitor design pattern
 	public void remind() throws IOException {
 		ReminderVisitor remind = new ReminderVisitor();
 		Reminder[] reminders = new Reminder[]{new Trading(),new ClassProductList(),new Trading()};
@@ -133,10 +144,9 @@ public class Facade {
 		return null;
 	}
 
+	// This function acts as run time function which will call all the sub functions.
+	// This includes internal and inside calls of Factory, Iterator, Bridge and Visitor design Pattern
 	public void productOperation() throws IOException {
-//		System.out.println("Calling person createProductMenu");
-//		int userType = thePerson.userInfoItem.getUserType();
-//		ProductMenu productMenu = thePerson.CreateProductMenu();
 		int userType = this.UserType;
 		System.out.println("Bridge Design Pattern");
 		ProductMenuFactory productMenu;
@@ -148,14 +158,11 @@ public class Facade {
 			Seller seller = new Seller(thePerson.userInfoItem);
 			productMenu = seller.CreateProductMenu();
 		}
-//		this.theProductMenu = productMenu;
 
 		System.out.println("Iterator design pattern");
-//		System.out.println(Arrays.deepToString(new ProductMenu[]{productMenu}));
 		ProductIterator productIterator = new ProductIterator(productMenu.getProducts());
 		List<Product> products = new ArrayList<>();
 		while (productIterator.hasNext()){
-//			System.out.println("a");
 			products.add(productIterator.Next());
 		}
 		System.out.println(Arrays.deepToString(products.toArray()));

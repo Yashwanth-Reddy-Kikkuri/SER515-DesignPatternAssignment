@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+
+// This is the class where we implemented Iterator Design Pattern
 public class ProductIterator implements ListIterator {
 
 	private List<Product> classProductList;
