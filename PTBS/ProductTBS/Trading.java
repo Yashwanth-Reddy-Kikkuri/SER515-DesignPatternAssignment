@@ -1,6 +1,6 @@
 package SER515.ProductTBS;
 
-public class Trading {
+public class Trading extends Reminder {
 
 	private Product product;
 

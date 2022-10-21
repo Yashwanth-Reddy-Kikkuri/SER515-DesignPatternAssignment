@@ -61,10 +61,12 @@ public class Facade {
 
 	}
 
-	public void remind() {
+	public void remind() throws IOException {
 		ReminderVisitor remind = new ReminderVisitor();
-		Trading trading = new Trading();
-		trading.accept(remind);
+		Reminder[] reminders = new Reminder[]{new Trading(),new ClassProductList(),new Trading()};
+		for(Reminder reminder : reminders){
+			reminder.accept(remind);
+		}
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
