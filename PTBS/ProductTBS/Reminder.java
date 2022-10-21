@@ -1,5 +1,5 @@
 package SER515.ProductTBS;
 
-public class Reminder {
-
+public abstract class Reminder {
+    public abstract Reminder accept(NodeVisitor nodeVisitor);
 }

@@ -39,8 +39,13 @@ public class ClassProductList {
 //		System.out.println(Arrays.deepToString(products.toArray()));
 	}
 
-	public void accept(NodeVisitor visitor) {
-
+	public Reminder accept(NodeVisitor visitor) {
+		System.out.println("Classproductlist Reminder");
+		for (Product product: this.products){
+			return visitor.visitProduct(product);
+		}
+//		this.reminderVisitor.visitProduct();
+		return null;
 	}
 
 

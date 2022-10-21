@@ -6,16 +6,21 @@ public class ReminderVisitor extends NodeVisitor {
 
 	private ClassProductList classProductList;
 
-	public void visitProduct(Product product) {
+	@Override
+	public Reminder visitProduct(Product product) {
+		System.out.println("visit Product");
+        return null;
+    }
 
+	@Override
+	public Reminder visitTrading(Trading trading) {
+		System.out.println("visit trading");
+		return null;
 	}
 
-	public void visitTrading(Trading trading) {
-
-	}
-
+	@Override
 	public void visitFacade(Facade facade) {
-
+		System.out.println("visit facade");
 	}
 
 }

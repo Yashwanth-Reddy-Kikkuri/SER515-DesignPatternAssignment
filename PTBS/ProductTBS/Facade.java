@@ -62,7 +62,9 @@ public class Facade {
 	}
 
 	public void remind() {
-
+		ReminderVisitor remind = new ReminderVisitor();
+		Trading trading = new Trading();
+		trading.accept(remind);
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
@@ -90,7 +92,6 @@ public class Facade {
 
 		String bt;
 		String name = thePerson.userInfoItem.getName();
-//		System.out.println(name);
 		List<String> productList = new ArrayList<String>();
 		while ((bt = br.readLine()) != null) {
 			String[] arrOfStr = bt.split(":");
@@ -98,7 +99,7 @@ public class Facade {
 				productList.add(arrOfStr[1]);
 			}
 		}
-//		System.out.println(Arrays.deepToString(productList.toArray()));
+
 		List<Product> productL = new ArrayList<Product>();
 		for(Product product : theProductList.getProducts()){
 			if(productList.contains(product.productName)){
@@ -156,6 +157,7 @@ public class Facade {
 			products.add(productIterator.Next());
 		}
 		System.out.println(Arrays.deepToString(products.toArray()));
-
+		System.out.println("Visitor Design Pattern");
+		this.remind();
 	}
 }

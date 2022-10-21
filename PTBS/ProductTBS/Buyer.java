@@ -53,7 +53,7 @@ public class Buyer extends Person {
 			System.out.println("Product Category doesn't match. Please re-enter");
 		}
 		System.out.println("Factory Design Pattern");
-
+		System.out.println("Factory Design Pattern will segregate between product menus based on category");
 //		List<Product> listOfProds = new ArrayList<>();
 		if (Category.equalsIgnoreCase("Meat")){
 			ProductMenuFactory productMenu = new MeatProductMenu();

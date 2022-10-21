@@ -10,7 +10,6 @@ public class Main {
                 if(facade.login()){
                     facade.createProductList();
                     facade.AttachProductToUser();
-//                    facade.SelectProduct();
                     facade.productOperation();
                 }
                 else{

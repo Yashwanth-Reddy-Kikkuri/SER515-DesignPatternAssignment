@@ -2,10 +2,11 @@ package SER515.ProductTBS;
 
 public abstract class NodeVisitor {
 
-	public abstract void visitProduct(Product product);
+	public abstract Reminder visitProduct(Product product);
 
-	public void visitTrading(Trading trading) {
+	public Reminder visitTrading(Trading trading) {
 
+		return null;
 	}
 
 	public void visitFacade(Facade facade) {
